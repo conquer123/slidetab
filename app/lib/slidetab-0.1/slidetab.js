@@ -17,7 +17,7 @@
         this.childCount = this.container.children.length;
 
         //一个窗格的宽度
-        this.panelSize = this.container['offsetWidth'] / this.childCount;
+        this.panelSize = this.container.offsetWidth / this.childCount;
 
         //保存每一个窗格的高度,当滑动到某一个窗格的时候需要改变窗格的高度
         this.paneHeight = [];
@@ -152,7 +152,6 @@
                     this.handleLoad();
                 }
 
-
             } else {
                 pos = -this.preIndex * this.panelSize + this.panelSize * percent / 100;
             }
@@ -174,7 +173,6 @@
          *  当窗格发生变化完成后触发(动画结束后)
          */
         slideChanged: function () {
-            console.log('sss');
             this.opts.slideChanged && this.opts.slideChanged.call(this, this.currentIndex);
         },
         /**
@@ -188,8 +186,6 @@
          *  当窗格发生变化完成后触发(动画还没结束)
          */
         slideEnd: function () {
-            console.log(this.currentIndex)
-            console.log(this.preIndex)
             if (this.currentIndex !== this.preIndex) {
                 this.slideChanged();
             }

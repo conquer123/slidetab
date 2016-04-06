@@ -1,6 +1,9 @@
 
 @import "reset";
-
+.container{
+    max-width: 750px;
+    margin: 0 auto;
+}
 .nav{
     display: flex;
     line-height: 50px;
@@ -60,4 +63,5 @@
     text-align: center;
     background-color: #999;
 }
+
 

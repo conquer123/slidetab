@@ -1,5 +1,4 @@
 $(function () {
-
     $('.nav').on('click', '.nav-tab', function () {
         var index = $('.nav-tab').index(this);
         slideTab.slideTo(index);
@@ -28,19 +27,22 @@ $(function () {
 
     function getData() {
         var index = slideTab.currentIndex;
+
         $.getJSON('test.json', function (data) {
+
             if (pages[index]++ === 10) {
                 slideTab.lock();
             }
-            var items = [];
 
+            var items = [];
             $.each(data, function (key, value) {
                 items.push('<div class="item">' + value + '</div>');
             });
             $('.pane').eq(index).append(items.join(''));
+
             slideTab.resetHeight();
+
         });
 
     }
-
 })
