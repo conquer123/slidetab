@@ -1,0 +1,63 @@
+
+@import "reset";
+
+.nav{
+    display: flex;
+    line-height: 50px;
+    text-align: center;
+    @at-root {
+        .nav-tab{
+            flex-grow: 1;
+        }
+    }
+}
+.bar{
+    width: 100%;
+    position: relative;
+    height: 2px;
+    @at-root {
+        .bar-progress{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25%;
+            height: 100%;
+            background-color: #00AA00;
+            transform: translate3d(0, 0, 0);
+            transition: 1s left;
+        }
+    }
+}
+
+.wraper{
+    width: 100%;
+    overflow: hidden;
+}
+.panes {
+    width: 400%;
+    //min-height: 200px;
+    overflow: hidden;
+}
+
+.pane {
+    float: left;
+    width: 25%;
+    //当高度为0的时候div不占空间......
+    min-height: 1px;
+}
+
+.panes.animate{
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0, 0, 0.25, 1);
+    transition-duration: 350ms;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+
+
+.item{
+    line-height: 40px;
+    text-align: center;
+    background-color: #999;
+}
+
