@@ -170,7 +170,7 @@
             this.show(index, 0, true);
         },
         /**
-         *  当窗格发生变化完成后触发(动画结束后)
+         *  当窗格发生变化完成后触发
          */
         slideChanged: function () {
             this.opts.slideChanged && this.opts.slideChanged.call(this, this.currentIndex);
@@ -183,7 +183,7 @@
 
         },
         /**
-         *  当窗格发生变化完成后触发(动画还没结束)
+         *  当窗格发生变化完成后触发
          */
         slideEnd: function () {
             if (this.currentIndex !== this.preIndex) {

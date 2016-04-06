@@ -1,0 +1,23 @@
+.wraper{
+    width: 100%;
+    overflow: hidden;
+}
+.panes {
+    width: 400%;
+    //min-height: 200px;
+    overflow: hidden;
+}
+
+.pane {
+    float: left;
+    width: 25%;
+    //当高度为0的时候div不占空间......
+    min-height: 1px;
+}
+
+.panes.animate{
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0, 0, 0.25, 1);
+    transition-duration: 350ms;
+    transform: translate3d(0px, 0px, 0px);
+}
