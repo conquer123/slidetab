@@ -1,5 +1,4 @@
-
-$(function(){
+$(function () {
 
     $('.nav').on('click', '.nav-tab', function () {
         var index = $('.nav-tab').index(this);
@@ -15,22 +14,27 @@ $(function(){
 
     slideTab.dropload = $('.wraper').dropload({
         scrollArea: window,
-        loadDownFn: function(me){
+        loadDownFn: function (me) {
             getData(me);
         }
     });
 
-    function slideChanged(index){
+    function slideChanged(index) {
 
         $('.bar-progress').css('left', 25 * index + '%');
     }
 
-    function getData(){
+    var pages = [0, 0, 0, 0]
+
+    function getData() {
         var index = slideTab.currentIndex;
-        $.getJSON('test.json', function(data) {
+        $.getJSON('test.json', function (data) {
+            if (pages[index]++ === 10) {
+                slideTab.lock();
+            }
             var items = [];
 
-            $.each(data, function(key, value) {
+            $.each(data, function (key, value) {
                 items.push('<div class="item">' + value + '</div>');
             });
             $('.pane').eq(index).append(items.join(''));
@@ -38,8 +42,5 @@ $(function(){
         });
 
     }
-
-
-
 
 })
