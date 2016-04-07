@@ -25,7 +25,8 @@
         }
     });
 
- 具体看[这里](https://github.com/fa-ge/slidetab/blob/master/app/scripts/main.js)
+ 具体使用看[这里](https://github.com/fa-ge/slidetab/blob/master/app/scripts/main.js)
+ 源码看[这里](https://github.com/fa-ge/slidetab/blob/master/app/lib/slidetab-0.1/slidetab.js)
 
 ##Callbacks
 
