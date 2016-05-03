@@ -31,17 +31,24 @@
         //上一个窗格,主要是slidechange事件中判断窗格是否发生了变化
         this.preIndex = 0;
 
-        this.hammer = new Hammer.Manager(this.container);
+        this.hammer = new Hammer.Manager(this.container,{
+            touchAction: 'auto'
+
+        });
 
         this.hammer.add(new Hammer.Pan({threshold: 10}));
 
         this.hammer.on("panleft panright", Hammer.bindFn(this.onPan, this));
+        //this.hammer.requireFailure(new Hammer({
+        //    domevent: 'scroll'
+        //}));
+
         this.hammer.on("panstart", Hammer.bindFn(this.onPanStart, this));
         this.hammer.on("panend pancancel", Hammer.bindFn(this.onPanEnd, this));
 
 
         //是否允许左右滑动
-        this.canLeftRightslide = false;
+        this.canLeftRightslide = true;
 
         //是否第一次滑动
         this.globalFirstslide = true;
@@ -70,7 +77,7 @@
 
         onPanStart: function (event) {
 
-            //如果最开始手势是左右滑动,那就不允许上下滑动
+            ////如果最开始手势是左右滑动,那就不允许上下滑动
             if (event.additionalEvent === 'panleft' || event.additionalEvent == 'panright') {
                 document.addEventListener('touchmove', this.preventDefault, false);
                 this.canLeftRightslide = true;
@@ -102,7 +109,7 @@
                 percent = (delta / this.panelSize) * 100;
 
             //当滑动的距离大于窗格的25%的时候才会滑动到下一个
-            if (Math.abs(percent) > 25 && event.type == 'panend') {
+            if (Math.abs(percent) > 20 && event.type == 'panend') {
                 this.currentIndex += (percent < 0) ? 1 : -1;
             }
 
